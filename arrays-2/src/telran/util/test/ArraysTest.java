@@ -2,6 +2,8 @@ package telran.util.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Comparator;
+
 import org.junit.jupiter.api.Test;
 
 import telran.util.Arrays;
@@ -27,6 +29,19 @@ class ArraysTest {
 		assertEquals("123", Arrays.min(stringMin, new StringsComparator())); 
 
 
+	}
+	
+	@Test
+	void evenOddComporatorTest() {
+		Comparator<Integer> comp = new EvenOddComparator();
+		assertTrue(comp.compare(Integer.MAX_VALUE, Integer.MAX_VALUE-2) > 0);
+		assertEquals(1, comp.compare(1,2));
+		assertEquals(-1, comp.compare(2,1));
+		assertEquals(0, comp.compare(2,2));
+		assertEquals(0, comp.compare(5,5));
+		assertEquals(-1, comp.compare(-8, 8));
+
+		
 	}
 
 	

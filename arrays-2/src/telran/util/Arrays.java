@@ -21,6 +21,7 @@ public class Arrays {
 	
 	public static <T>T min(T[] array, Comparator<T> comp) {
 		T res = null;
+		
 		if (array != null && array.length > 0) {
 			res = array[0];
 			for (int i = 1; i < array.length; i++) {
@@ -37,19 +38,20 @@ public class Arrays {
 	}
 	
     public static <T> void bubbleSort(T[] array, Comparator<T> comparator) {
+    	boolean swapped = true;
         T temp;
-        for (int i = 0; i < array.length - 1; i++) {
+        for (int i = 0; i < array.length - 1 && swapped; i++) {
+        	swapped = false;
             for (int j = i + 1; j < array.length; j++) {
                 if (comparator.compare(array[i], array[j]) > 0) {
                     temp = array[i];
                     array[i] = array[j];
                     array[j] = temp;
+                    swapped = true;
                 }
             }
         }
-        for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i]);
-        }
+
 
 }
 }
